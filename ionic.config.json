@@ -1,0 +1,7 @@
+{
+  "name": "reservacionesApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
