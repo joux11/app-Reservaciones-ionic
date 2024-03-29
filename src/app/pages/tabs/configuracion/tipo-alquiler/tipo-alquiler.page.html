@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/configuracion"></ion-back-button>
+    </ion-buttons>
+    <ion-title text-center>Tipos de Alquiler</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="irNuevoTipo()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-list [inset]="true">
+    <ion-item-sliding *ngFor="let tipoAlquiler of tiposAlquiler">
+      <ion-item [button]="true" (click)="verModal(tipoAlquiler.id, 'ver')">
+        <ion-avatar aria-hidden="true" slot="start">
+          <ion-icon size="large" name="key" />
+        </ion-avatar>
+        <ion-label>
+          <b>Tipo:</b> {{tipoAlquiler.nombre}}
+          <br />
+          <ion-note color="medium">
+            <b>Precio:</b> {{tipoAlquiler.precio}}
+          </ion-note>
+        </ion-label>
+      </ion-item>
+      <ion-item-options slot="end">
+        <ion-item-option color="warning" (click)="verModal(tipoAlquiler.id, 'editar')">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-item-option>
+
+        <ion-item-option color="danger" expandable="true" (click)="eliminar(tipoAlquiler.id)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

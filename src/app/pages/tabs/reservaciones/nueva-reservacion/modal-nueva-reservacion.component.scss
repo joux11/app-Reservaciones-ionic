@@ -1,0 +1,52 @@
+.selected {
+    background-color: #cfd8dc;
+}
+
+.stand-selected {
+    background-color: #32CD32;
+}
+
+.stand-occupied {
+    background-color: red;
+    color: white;
+}
+
+.stand-caducado {
+    background-color: grey;
+    color: white;
+}
+
+
+
+
+ion-content ion-card {
+    width: 100%;
+}
+
+ion-card {
+    margin: 2px;
+    padding: 2px;
+}
+
+.recibo-header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.detalles-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+
+
+}
+
+.detalles-header {
+    font-weight: bold;
+}
+
+.total-item {
+    border-top: 2px solid #ccc;
+}

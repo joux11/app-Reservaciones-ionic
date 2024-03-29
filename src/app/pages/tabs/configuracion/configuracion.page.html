@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Configuracion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list [inset]="true">
+    <ion-item [button]="true" detail="false" *ngFor="let item of items" [routerLink]="item.url">
+      <ion-icon slot="start" [name]="item.icon"></ion-icon>
+      <ion-label>
+        <strong>{{item.nombre}} </strong>
+        <br />
+        <ion-note color="medium">
+          {{item.descripcion}}
+        </ion-note>
+      </ion-label>
+      <div class="metadata-end-wrapper" slot="end">
+        <ion-icon color="medium" name="chevron-forward"></ion-icon>
+      </div>
+    </ion-item>
+    <ion-item [button]="true" detail="false" (click)="respaldar()">
+      <ion-icon slot="start" name="server-outline"></ion-icon>
+      <ion-label>
+        <strong>Respaldar Base de Datos</strong>
+        <br />
+        <ion-note color="medium">
+          Respaldar la base de datos
+        </ion-note>
+      </ion-label>
+      <div class="metadata-end-wrapper" slot="end">
+        <ion-icon color="medium" name="chevron-forward"></ion-icon>
+      </div>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

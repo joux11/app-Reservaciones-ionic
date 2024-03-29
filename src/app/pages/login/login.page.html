@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Iniciar sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-text>
+    <h1 class="ion-text-center ">Bienvenido</h1>
+  </ion-text>
+
+  <ion-card>
+    <img src="../../../assets/img/logo.jpeg" />
+    <ion-card-content>
+      <form [formGroup]="formData">
+
+        <ion-input formControlName="email" label="Correo Electronico" label-placement="floating" fill="outline"
+          errorText="Ingrese un correo valido" style="margin-top: 10px;"></ion-input>
+        <ion-input formControlName="password" label="Password" label-placement="floating" fill="outline"
+          errorText="Ingrese una Contraseña valida" style="margin-top: 10px;" type="password"></ion-input>
+
+
+        <ion-button expand="block" color="tertiary" class="ion-padding" (click)="login()">
+          Iniciar sesión
+        </ion-button>
+
+        <div class="signup-link">
+          ¿No tienes una cuenta? <a (click)="signup()">Regístrate aquí</a>
+        </div>
+
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

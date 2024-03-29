@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Mi Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <ion-card-header>
+        <ion-card-title>Información</ion-card-title>
+      </ion-card-header>
+
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">Nombre</ion-label>
+          <ion-input label="" [(ngModel)]="nombre" type="text" placeholder="Ingrese su nombre"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Apellido</ion-label>
+          <ion-input label="" [(ngModel)]="apellido" type="text" placeholder="Ingrese su apellido"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Teléfono</ion-label>
+          <ion-input label="" [(ngModel)]="telefono" type="tel" placeholder="Ingrese su teléfono"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input label="" [(ngModel)]="email" type="email" placeholder="Ingrese su correo electrónico"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-button *ngIf="!isAdmin" style="margin: 15px" expand="block" color="warning"
+    (click)="Actualizar()">Actualizar</ion-button>
+  <ion-button style="margin: 15px" expand="block" color="danger" (click)="logout()">Cerrar Sesion</ion-button>
+</ion-content>

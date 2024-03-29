@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Reservaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-fab *ngIf="!isAdmin" vertical="bottom" horizontal="end" slot="fixed" (click)="nuevaReservacion()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-list *ngIf="!isAdmin">
+    <ion-item *ngFor="let reservacion of reservaciones; let i= index">
+
+      <ion-card style="display: flex; align-items: center; justify-content: space-between;">
+        <ion-card-header>
+          <ion-card-title>Reserva N° {{ i + 1 }}</ion-card-title>
+          <ion-card-subtitle [color]="reservacion.estado === 'Aprobada' ? 'success' : ''">
+            {{ reservacion.estado }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content style="padding: 10px;" class="ion-text-center">
+          <p><strong>Fecha de inicio:</strong> {{ reservacion.fecha_inicio | date: 'dd/MM/yyyy' }}</p>
+          <p><strong>Fecha de fin:</strong> {{ reservacion.fecha_fin | date: 'dd/MM/yyyy' }}</p>
+          <p><strong>Tipo de alquiler:</strong> {{ reservacion.tipo_alquiler }}</p>
+        </ion-card-content>
+        <div class="ion-text-center">
+          <!-- Agregamos esta div y aplicamos la clase ion-text-end para alinear el contenido a la derecha -->
+          <ion-button (click)="irReservacion(reservacion.id)">
+            <ion-icon size="large" name="arrow-forward-circle-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-card>
+    </ion-item>
+
+  </ion-list>
+  <ion-list *ngIf="isAdmin">
+    <ion-item *ngFor="let reservacion of reservaciones; let i= index">
+
+      <ion-card style="display: flex; align-items: center; justify-content: space-between;">
+        <ion-card-header>
+          <ion-card-title>Reserva N° {{ i + 1 }}</ion-card-title>
+          <ion-card-subtitle [color]="reservacion.estado === 'Aprobada' ? 'success' : ''">
+            {{ reservacion.estado }}</ion-card-subtitle>
+          <br />
+          <ion-label size="small" color="dark">Usuario: {{ reservacion.nombreUsuario }}</ion-label>
+        </ion-card-header>
+        <ion-card-content style="padding: 10px;" class="ion-text-center">
+          <p><strong>Fecha de inicio:</strong> {{ reservacion.fecha_inicio | date: 'dd/MM/yyyy' }}</p>
+          <p><strong>Fecha de fin:</strong> {{ reservacion.fecha_fin | date: 'dd/MM/yyyy' }}</p>
+          <p><strong>Tipo de alquiler:</strong> {{ reservacion.tipo_alquiler }}</p>
+        </ion-card-content>
+        <div class="ion-text-center">
+          <!-- Agregamos esta div y aplicamos la clase ion-text-end para alinear el contenido a la derecha -->
+          <ion-button (click)="irReservacion(reservacion.id)">
+            <ion-icon size="large" name="arrow-forward-circle-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-card>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

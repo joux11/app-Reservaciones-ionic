@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar [color]="colorModal">
+    <ion-buttons slot="start">
+      <ion-button (click)="cancelar()">Cancelar</ion-button>
+    </ion-buttons>
+    <ion-title>{{titleHeader}}</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Servicio</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <form [formGroup]="formData">
+          <ion-item>
+            <ion-input formControlName="nombre" errorText="El nombre es obligatorio" labelPlacement="stacked"
+              placeholder="Nombre del Servicio">
+              <ion-icon slot="start" name="bag"></ion-icon>
+            </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="detalle" errorText="El detalle es obligatorio" labelPlacement="stacked"
+              placeholder="Detalle ">
+              <ion-icon slot="start" name="information-circle"></ion-icon>
+            </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="precio" errorText="El precio es obligatorio" type="number"
+              labelPlacement="stacked" placeholder="Precio ">
+              <ion-icon slot="start" name="pricetag"></ion-icon>
+            </ion-input>
+          </ion-item>
+        </form>
+      </ion-list>
+    </ion-card-content>
+    <ion-button class="margin-rl" *ngIf="!verInfo && !isEdit" expand="block" fill="outline"
+      (click)="guardar()">Guardar</ion-button>
+    <ion-button class="margin-rl" expand="block" color="warning" *ngIf="isEdit" fill="outline"
+      (click)="editar()">Editar</ion-button>
+  </ion-card>
+</ion-content>

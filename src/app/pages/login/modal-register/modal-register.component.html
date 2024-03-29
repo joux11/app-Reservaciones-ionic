@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="#" (click)="cancel()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Registro</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="formData">
+        <ion-input formControlName="nombre" label="Nombre" label-placement="floating" fill="outline"
+          errorText="Este campo es requerido" style="margin-top: 10px;"></ion-input>
+        <ion-input formControlName="apellido" label="Apellido" label-placement="floating" fill="outline"
+          errorText="Este campo es requerido" style="margin-top: 10px;"></ion-input>
+        <ion-input formControlName="telefono" label="Numero de Celular/Telefono" label-placement="floating"
+          fill="outline" errorText="Este campo es requerido" style="margin-top: 10px;"></ion-input>
+        <ion-input formControlName="email" label="Correo Electronico" label-placement="floating" fill="outline"
+          errorText="Ingrese un correo valido" style="margin-top: 10px;"></ion-input>
+        <ion-input formControlName="password" label="Password" label-placement="floating" fill="outline"
+          errorText="Ingrese una Contraseña valida" style="margin-top: 10px;" type="password"></ion-input>
+
+
+        <ion-button expand="block" color="tertiary" class="ion-padding" (click)="signup()">
+          Regístrate
+        </ion-button>
+
+
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
